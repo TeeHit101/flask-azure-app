@@ -1,0 +1,13 @@
+<h2>Welcome {{ session['user'] }}</h2>
+<form method="POST" action="/upload" enctype="multipart/form-data">
+  <input type="file" name="file">
+  <button type="submit">Upload</button>
+</form>
+
+<ul>
+{% for file in files %}
+  <li>{{ file }} - <a href="/download/{{ file }}">Download</a></li>
+{% endfor %}
+</ul>
+
+<a href="/logout">Logout</a>
